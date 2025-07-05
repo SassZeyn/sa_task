@@ -25,10 +25,13 @@ annotation_class = {
 }
 sa_client.create_annotation_class(project_name, annotation_class)
 
-# === Step 4: Upload Image ===
+# === Step 4: Upload Image from local 'images/' folder ===
 image_name = "sample3.jpg"
-image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Fronalpstock_big.jpg/800px-Fronalpstock_big.jpg"
-sa_client.attach_items(project_name, [{"name": image_name, "url": image_url}])
+image_path = os.path.join("images", image_name)
+sa_client.upload_images_from_folder_to_project(
+    project=project_name,
+    folder_path="images"
+)
 
 # === Step 5: Get Image Dimensions ===
 metadata = sa_client.get_image_metadata(project_name, image_name)
