@@ -1,0 +1,33 @@
+# SuperAnnotate Hexagon Annotation Task
+
+This project creates a **hexagon annotation** on an image using SuperAnnotate’s SDK and the official **Modern Image Project format**.
+
+## Contents
+
+- `superannotate_task.py` – Main Python script
+- `hex_annotation_test.json` – Sample annotation output
+- `.env` – Stores your SA token (excluded from GitHub)
+- `requirements.txt` – Reproducible dependency list
+
+## Steps Performed
+
+1. Create Image Project of type `Vector`
+2. Add annotation class: `hexagon` (polygon)
+3. Attach an image via URL
+4. Generate hexagonal points dynamically
+5. Save annotations using the required `<image_name>___objects.json` naming convention
+6. Upload annotation and mark the image as `Completed`
+
+## Annotation Format
+
+The annotation JSON follows SuperAnnotate’s official schema:
+- `metadata`: includes name, width, height, and status
+- `instances`: holds the hexagon polygon
+- `tags`: optional keywords (e.g., `"generated"`)
+- `comments`: empty by default
+
+## Validation
+
+The image was uploaded and validated using:
+```python
+sa_client.upload_annotation(...)
