@@ -2,18 +2,17 @@ import os
 import json
 import math
 from dotenv import load_dotenv
-# from superannotate import SAClient  # Commented out for local testing
+from PIL import Image  # New: to read actual image size
 
-# === Step 1: Skip SA token for now ===
-# load_dotenv()
-# token = os.getenv("SA_TOKEN")
-# sa_client = SAClient(token=token)
-
-# === Step 2: Dummy data for testing ===
+# === Step 1: Image file setup ===
 image_name = "sample3.jpg"
-width, height = 800, 533  # manually set for now
+image_path = os.path.join("images", image_name)
 
-# === Step 3: Hexagon generator ===
+# === Step 2: Read image dimensions ===
+with Image.open(image_path) as img:
+    width, height = img.size
+
+# === Step 3: Hexagon point generator ===
 def generate_hexagon_points(width, height, scale=0.4):
     cx, cy = width / 2, height / 2
     r = min(width, height) * scale / 2
@@ -25,7 +24,7 @@ def generate_hexagon_points(width, height, scale=0.4):
 
 points = generate_hexagon_points(width, height)
 
-# === Step 4: JSON Object ===
+# === Step 4: Build annotation JSON ===
 annotation_json = [{
     "metadata": {
         "name": image_name,
@@ -42,10 +41,9 @@ annotation_json = [{
     "comments": []
 }]
 
-
-# === Step 5: Save locally ===
+# === Step 5: Save the JSON to local file ===
 json_path = f"{image_name}___objects.json"
-with open(f"{image_name}___objects.json", "w") as f:
+with open(json_path, "w") as f:
     json.dump(annotation_json, f, indent=4)
 
-print("✅ Local test completed. JSON file generated.")
+print("Local test completed. JSON file generated.")
