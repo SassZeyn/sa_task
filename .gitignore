@@ -1,0 +1,19 @@
+# Ignore Python virtual environment
+sa_env/
+
+# Ignore environment variables
+.env
+
+# Bytecode files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# VS Code / JetBrains / OS files
+.vscode/
+.idea/
+.DS_Store
+
+# Logs
+*.log
