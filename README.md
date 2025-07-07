@@ -9,11 +9,11 @@ This project creates a **hexagon annotation** on an image using SuperAnnotate’
 The project uses two separate branches to isolate logic testing from API interactions:
 
 | Branch          | Purpose                                 | SA API Calls | Image Required |
-|-----------------|------------------------------------------|--------------|----------------|
-| `main`          | Local testing with mock data (no API)    | ❌ No         | ❌ No           |
-| `sa-api-version`| Full flow using SuperAnnotate SDK        | ✅ Yes        | ✅ Yes (in `images/`) |
+|-----------------|------------------------------------------|----------|--------------|
+| `main`          | Local testing with mock data (no API)    | No       | No           |
+| `sa-api-version`| Full flow using SuperAnnotate SDK        | Yes      | Yes (in `images/`) |
 
-> ✅ This approach ensures API rate limits are respected and testing can be done offline.
+> This approach ensures API rate limits are respected and testing can be done offline.
 
 ---
 
