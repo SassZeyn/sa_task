@@ -51,5 +51,16 @@ The annotation JSON follows SuperAnnotate’s official schema:
 ## Validation
 
 The image was uploaded and validated using:
+
 ```python
+
 sa_client.upload_annotation(...)
+
+## Exported Annotations
+
+This project includes SDK-exported annotations in the `/exported_annotations/` folder, containing:
+
+- `classes.json`: class metadata
+- `sample3.jpg.json`: annotation file in SuperAnnotate schema
+
+These are programmatically downloaded via the SDK and can be used for audit or verification.
