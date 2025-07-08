@@ -1,0 +1,41 @@
+{
+  "metadata": {
+    "name": "sample3.jpg",
+    "width": 2400,
+    "height": 1600,
+    "lastAction": {
+      "email": "llm-org@superannotate.com",
+      "timestamp": 1751992043536
+    }
+  },
+  "instances": [
+    {
+      "probability": 100,
+      "id": "3615adec-2979-4f3f-a788-7a954cf43a6f",
+      "type": "polygon",
+      "classId": 2076515,
+      "className": "Hexagon",
+      "points": [
+        1520.0,
+        800.0,
+        1360.0,
+        1077.1281292110202,
+        1040.0,
+        1077.1281292110205,
+        880.0,
+        800.0,
+        1039.9999999999998,
+        522.8718707889798,
+        1360.0,
+        522.8718707889797
+      ],
+      "groupId": 0,
+      "pointLabels": {},
+      "attributes": [],
+      "locked": false,
+      "creationType": "Preannotation"
+    }
+  ],
+  "tags": [],
+  "comments": []
+}
