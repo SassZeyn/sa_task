@@ -1,12 +1,12 @@
 [
     {
-        "createdAt": "2025-07-08T16:27:18.000Z",
-        "updatedAt": "2025-07-08T16:27:18.000Z",
-        "id": 2076515,
-        "project_id": 244637,
+        "createdAt": "2025-07-09T06:44:25.000Z",
+        "updatedAt": "2025-07-09T06:44:25.000Z",
+        "id": 2076761,
+        "project_id": 244665,
         "type": 1,
         "name": "Hexagon",
-        "color": "#99B610",
+        "color": "#6E4B87",
         "attribute_groups": []
     }
 ]

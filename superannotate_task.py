@@ -27,7 +27,6 @@ sa.create_project(
     project_description="Project with hexagon annotation",
     project_type="Vector"
 )
-print(f"[✓] Project created: {project_name}")
 
 # === Step 3: Create an Annotation Class with random color ===
 class_name = "Hexagon"
@@ -38,7 +37,6 @@ sa.create_annotation_class(
     color=hex_color,
     class_type="object"
 )
-print(f"[✓] Annotation class '{class_name}' created with color {hex_color}")
 
 # === Step 4: Attach image from GitHub raw URL ===
 image_name = "sample3.jpg"
@@ -48,7 +46,6 @@ sa.attach_items(
     attachments=[{"name": image_name, "url": image_url}],
     annotation_status="NotStarted"
 )
-print(f"[✓] Image attached: {image_name}")
 
 # === Step 5: Get image dimensions from the image itself ===
 response = requests.get(image_url)
@@ -56,7 +53,6 @@ if not response.ok:
     raise Exception(f"Failed to download image from URL: {image_url}")
 image = Image.open(BytesIO(response.content))
 width, height = image.size
-print(f"[✓] Fetched image dimensions: width={width}, height={height}")
 
 # === Step 6: Generate hexagon polygon points (flattened) ===
 def generate_hexagon_points(width, height, scale=0.4):
@@ -100,7 +96,6 @@ annotation = {
 
 # === Step 9: Upload annotation ===
 sa.upload_annotations(project=project_name, annotations=[annotation])
-print(f"[✓] Annotation uploaded for image: {image_name}")
 
 # === Step 10: Set image status to 'Completed' ===
 sa.set_annotation_statuses(
@@ -108,13 +103,11 @@ sa.set_annotation_statuses(
     annotation_status="Completed",
     items=[image_name]
 )
-print(f"[✓] Image status set to Completed: {image_name}")
 
 # === Step 11: Save annotation JSON locally ===
 json_filename = f"{image_name.rsplit('.', 1)[0]}.json"
 with open(json_filename, "w") as f:
     json.dump(annotation, f, indent=2)
-print(f"[✓] Annotation JSON saved as: {json_filename}")
 
 # === Step 12: Download annotation via SDK for verification ===
 export_path = "./exported_annotations"
@@ -125,4 +118,3 @@ sa.download_annotations(
     path=export_path,
     items=[image_name]
 )
-print(f"[✓] Annotation downloaded via SDK to: {os.path.join(export_path, image_name + '.json')}")

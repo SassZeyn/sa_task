@@ -5,15 +5,15 @@
     "height": 1600,
     "lastAction": {
       "email": "llm-org@superannotate.com",
-      "timestamp": 1751992043536
+      "timestamp": 1752043470761
     }
   },
   "instances": [
     {
       "probability": 100,
-      "id": "3615adec-2979-4f3f-a788-7a954cf43a6f",
+      "id": "af219ed6-5a64-413a-a378-2206621cd2f8",
       "type": "polygon",
-      "classId": 2076515,
+      "classId": 2076761,
       "className": "Hexagon",
       "points": [
         1520.0,
